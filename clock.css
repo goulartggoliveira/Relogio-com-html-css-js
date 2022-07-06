@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+}
+
+body {
+  background-image: linear-gradient(
+    43deg,
+    #000000 0%,
+    #4e4f50 46%,
+    #ffffff 100%
+  );
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+h1 {
+  margin: 15px;
+  padding: 15px;
+  color: white;
+}
+
+.clock {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+}
+
+.clock .number {
+  --rotation: 0;
+
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+  text-align: center;
+  transform: rotate(var(--rotation));
+  font-size: 1.8rem;
+  font-weight: 500;
+  padding: 15px;
+}
+
+.clock .number.number-1 {
+  left: 22%;
+  top: 5%; /* 
+  --rotation: 30deg; */
+}
+.clock .number.number-2 {
+  left: 38%;
+  top: 22%;
+
+  /* --rotation: 60deg; */
+}
+.clock .number.number-3 {
+  top: 44%;
+  left: 44%;
+  /* --rotation: 90deg; */
+}
+.clock .number.number-4 {
+  top: 66%;
+  left: 38%;
+  /* --rotation: 120deg; */
+}
+.clock .number.number-5 {
+  top: 82%;
+  left: 22%;
+  /* --rotation: 150deg; */
+}
+.clock .number.number-6 {
+  top: 88%;
+  /* --rotation: 180deg; */
+}
+.clock .number.number-7 {
+  top: 82%;
+  right: 22%;
+  /* --rotation: 210deg; */
+}
+.clock .number.number-8 {
+  top: 66%;
+  right: 38%;
+  /* --rotation: 240deg; */
+}
+.clock .number.number-9 {
+  top: 44%;
+  right: 44%;
+  /* --rotation: 270deg; */
+}
+.clock .number.number-10 {
+  right: 38%;
+  top: 22%;
+  /* --rotation: 300deg; */
+}
+.clock .number.number-11 {
+  right: 22%;
+  top: 5%;
+  /* --rotation: 330deg; */
+}
+
+/* PONTEIROS*/
+.clock::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  z-index: 11;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}
+
+.clock .hand {
+  --rotation: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  background-color: black;
+  z-index: 10;
+  transform: translateX(-50%) rotate(calc(var(--rotation) * 1deg));
+  transform-origin: bottom;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.clock .hand.seconds {
+  width: 3px;
+  height: 40%;
+  background-color: black;
+}
+
+.clock .hand.minutes {
+  width: 7px;
+  height: 35%;
+  background-color: black;
+}
+
+.clock .hand.hours {
+  width: 10px;
+  height: 25%;
+  background-color: black;
+}
